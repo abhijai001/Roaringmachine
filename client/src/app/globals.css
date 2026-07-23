@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+/* ===========================================
+   THEME
+=========================================== */
+
+@theme {
+  --color-background: #050505;
+  --color-card: #111111;
+  --color-card-hover: #181818;
+  --color-border: #262626;
+
+  --color-primary: #d4af37;
+  --color-primary-hover: #f0c75e;
+
+  --color-text: #ffffff;
+  --color-muted: #9ca3af;
+
+  --shadow-gold: 0 0 35px rgba(212, 175, 55, 0.12);
+}
+
+/* ===========================================
+   GLOBAL RESET
+=========================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===========================================
+   TEXT SELECTION
+=========================================== */
+
+::selection {
+  background: rgba(212, 175, 55, 0.35);
+  color: white;
+}
+
+/* ===========================================
+   SCROLLBAR
+=========================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b3b3b;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Firefox */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3b3b3b #080808;
+}
+
+/* ===========================================
+   GLOBAL IMAGE
+=========================================== */
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ===========================================
+   LINKS
+=========================================== */
+
+a {
+  text-decoration: none;
+  transition: all .3s ease;
+}
+
+/* ===========================================
+   BUTTON TRANSITIONS
+=========================================== */
+
+button {
+  transition: all .3s ease;
+}
+
+/* ===========================================
+   INPUTS
+=========================================== */
+
+input,
+textarea,
+select {
+  outline: none;
+}
+
+/* ===========================================
+   GLASS EFFECT
+=========================================== */
+
+.glass {
+  background: rgba(255,255,255,.04);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+/* ===========================================
+   PREMIUM CARD
+=========================================== */
+
+.premium-card {
+  background: linear-gradient(
+      180deg,
+      rgba(255,255,255,.02),
+      rgba(255,255,255,.01)
+  );
+  border: 1px solid rgba(255,255,255,.08);
+  transition: all .35s ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212,175,55,.45);
+  box-shadow: var(--shadow-gold);
+}
+
+/* ===========================================
+   SECTION SPACING
+=========================================== */
+
+section {
+  position: relative;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+/* ===========================================
+   HEADINGS
+=========================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -.03em;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
