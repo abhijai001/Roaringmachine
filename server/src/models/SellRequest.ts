@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-export interface ISellRequest extends Document {
+export interface ISellRequest {
   title: string;
   brand: string;
   model: string;

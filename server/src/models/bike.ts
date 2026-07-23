@@ -10,6 +10,7 @@ export interface IBike extends Document {
   images: string[];
   description: string;
   isAvailable: boolean;
+  isFeatured: boolean;
 }
 
 const bikeSchema: Schema = new Schema(

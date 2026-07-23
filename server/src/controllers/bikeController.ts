@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Bike from '../models/Bike';
+import Bike from '../models/bike';
 
 export const getBikes = async (req: Request, res: Response) => {
   try {
