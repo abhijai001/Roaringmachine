@@ -118,14 +118,13 @@ setFeaturedBikes(
       </div>
 
       {/* Right Side */}
-      <div className="relative h-[320px] sm:h-[450px] lg:h-[600px]">
-
+<div className="relative h-[420px] sm:h-[500px] lg:h-[600px] w-full">
         <Image
           src="/hero-bike.jpg"
           alt="Superbike"
           fill
           priority
-          className="object-contain w-full h-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]"
+          className="object-contain scale-110 sm:scale-105 lg:scale-100 drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]"
         />
 
       </div>
@@ -160,23 +159,23 @@ setFeaturedBikes(
 
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
 
-      <div className="rounded-3xl border border-yellow-500/20 bg-zinc-900/60 p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500 hover:shadow-[0_0_35px_rgba(212,175,55,0.15)]">
-        <h3 className="text-5xl font-black text-yellow-500">4.9★</h3>
+      <div className="rounded-3xl border border-yellow-500/20 bg-zinc-900/60 p-5 sm:p-6 lg:p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500 hover:shadow-[0_0_35px_rgba(212,175,55,0.15)]">
+        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-yellow-500 break-words">4.9★</h3>
         <p className="mt-3 text-gray-400">Google Rating</p>
       </div>
 
-      <div className="rounded-3xl border border-yellow-500/20 bg-zinc-900/60 p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500 hover:shadow-[0_0_35px_rgba(212,175,55,0.15)]">
-        <h3 className="text-5xl font-black text-yellow-500">Buy</h3>
+      <div className="rounded-3xl border border-yellow-500/20 bg-zinc-900/60 p-5 sm:p-6 lg:p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500 hover:shadow-[0_0_35px_rgba(212,175,55,0.15)]">
+        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-yellow-500 break-words">Buy</h3>
         <p className="mt-3 text-gray-400">Premium Superbikes</p>
       </div>
 
-      <div className="rounded-3xl border border-yellow-500/20 bg-zinc-900/60 p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500 hover:shadow-[0_0_35px_rgba(212,175,55,0.15)]">
-        <h3 className="text-5xl font-black text-yellow-500">Sell</h3>
+      <div className="rounded-3xl border border-yellow-500/20 bg-zinc-900/60 p-5 sm:p-6 lg:p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500 hover:shadow-[0_0_35px_rgba(212,175,55,0.15)]">
+        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-yellow-500 break-words">Sell</h3>
         <p className="mt-3 text-gray-400">Best Market Value</p>
       </div>
 
-      <div className="rounded-3xl border border-yellow-500/20 bg-zinc-900/60 p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500 hover:shadow-[0_0_35px_rgba(212,175,55,0.15)]">
-        <h3 className="text-5xl font-black text-yellow-500">Exchange</h3>
+      <div className="rounded-3xl border border-yellow-500/20 bg-zinc-900/60 p-5 sm:p-6 lg:p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500 hover:shadow-[0_0_35px_rgba(212,175,55,0.15)]">
+        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-yellow-500 break-words">Exchange</h3>
         <p className="mt-3 text-gray-400">Easy Upgrade Options</p>
       </div>
 
