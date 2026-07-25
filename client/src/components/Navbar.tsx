@@ -42,9 +42,9 @@ if (pathname.startsWith("/dashboard")) {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="h-20 flex items-center justify-between">
+          <div className="h-16 sm:h-20 flex items-center justify-between">
 
             {/* LOGO */}
 
@@ -53,20 +53,20 @@ if (pathname.startsWith("/dashboard")) {
               className="flex items-center gap-3"
             >
               <Image
-                src="/logo.png"
-                alt="Roaring Machine"
-                width={48}
-                height={48}
-                className="rounded-full border border-yellow-500/30"
-              />
+  src="/logo.png"
+  alt="Roaring Machine"
+  width={44}
+  height={44}
+  className="rounded-full border border-yellow-500/30 w-10 h-10 sm:w-12 sm:h-12"
+/>
 
               <div>
 
-                <h1 className="font-black text-lg tracking-[0.25em] text-white">
+                <h1 className="font-black text-base sm:text-lg tracking-[0.18em] sm:tracking-[0.25em] text-white">
                   ROARING
                 </h1>
 
-                <p className="text-xs tracking-[0.45em] text-yellow-500 uppercase">
+                <p className="text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.45em] text-yellow-500 uppercase">
                   Machines
                 </p>
 
@@ -76,7 +76,7 @@ if (pathname.startsWith("/dashboard")) {
 
             {/* Desktop Menu */}
 
-            <div className="hidden lg:flex items-center gap-10">
+            <div className="hidden lg:flex items-center gap-6 xl:gap-10">
 
               {links.map((item) => (
 
@@ -96,7 +96,7 @@ if (pathname.startsWith("/dashboard")) {
 
             {/* CTA + Social */}
 
-<div className="hidden lg:flex items-center gap-6">
+<div className="hidden lg:flex items-center gap-4 xl:gap-6">
 
   <div className="flex items-center gap-3">
 
@@ -128,7 +128,7 @@ if (pathname.startsWith("/dashboard")) {
 
   <Link
     href="/sell"
-    className="group bg-yellow-500 hover:bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold transition flex items-center gap-2"
+   className="group bg-yellow-500 hover:bg-yellow-400 text-black px-4 xl:px-6 py-2.5 xl:py-3 rounded-full font-semibold transition flex items-center gap-2 whitespace-nowrap"
   >
     List Your Bike
 
