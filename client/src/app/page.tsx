@@ -69,9 +69,9 @@ setFeaturedBikes(
   {/* Extra Gradient for Text */}
   
 <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />  {/* Hero Content */}
-  <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full">
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 w-full">
 
-    <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
 
       {/* Left Side */}
       <div>
@@ -80,7 +80,7 @@ setFeaturedBikes(
           Delhi's Premier Pre-Owned Superbike Showroom
         </span>
 
-        <h1 className="mt-6 text-6xl lg:text-7xl font-black leading-tight uppercase">
+        <h1 className="mt-6 text-5xl sm:text-6xl lg:text-7xl font-black leading-tight uppercase">
           PRE-OWNED
           <br />
           <span className="text-yellow-500">
@@ -90,7 +90,7 @@ setFeaturedBikes(
           SUPERBIKES
         </h1>
 
-        <p className="mt-8 max-w-xl text-lg text-gray-300 leading-8">
+        <p className="mt-8 max-w-xl text-base sm:text-lg text-gray-300 leading-7 sm:leading-8">
           Roaring Machines is Delhi's trusted destination for premium pre-owned
           superbikes. From Kawasaki and Ducati to BMW, Yamaha, Honda and Suzuki,
           every motorcycle is carefully inspected before reaching its next rider.
@@ -118,14 +118,14 @@ setFeaturedBikes(
       </div>
 
       {/* Right Side */}
-      <div className="relative h-[600px]">
+      <div className="relative h-[320px] sm:h-[450px] lg:h-[600px]">
 
         <Image
           src="/hero-bike.jpg"
           alt="Superbike"
           fill
           priority
-          className="object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]"
+          className="object-contain w-full h-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]"
         />
 
       </div>
