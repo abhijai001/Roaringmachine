@@ -135,7 +135,7 @@ setFeaturedBikes(
   </div>
 
 </section>
-{/* <BrandMarquee /> */}
+<BrandMarquee />
       {/* ================= TRUST SECTION ================= */}
 
 <section className="py-20 bg-[#080808] border-y border-yellow-500/10">
