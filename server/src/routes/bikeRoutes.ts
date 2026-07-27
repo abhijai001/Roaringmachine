@@ -160,7 +160,7 @@ if (!files || files.length === 0) {
 //
 router.put(
   "/bikes/:id",
-  upload.single("image"),
+  upload.array("image", 10),
   async (req, res) => {
     try {
       const {
@@ -201,9 +201,11 @@ if (isAvailable !== undefined) {
 if (isFeatured !== undefined) {
   bike.isFeatured = isFeatured === "true";
 }
-      if (req.file) {
-        bike.images = [req.file.path];
-      }
+      const files = req.files as Express.Multer.File[];
+
+if (files && files.length > 0) {
+  bike.images = files.map((file) => file.path);
+}
 
       await bike.save();
 

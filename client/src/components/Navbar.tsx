@@ -142,12 +142,34 @@ if (pathname.startsWith("/dashboard")) {
 
             {/* Mobile */}
 
-            <button
-              onClick={() => setOpen(!open)}
-              className="lg:hidden text-white"
-            >
-              {open ? <X size={28} /> : <Menu size={28} />}
-            </button>
+<div className="lg:hidden flex items-center gap-4">
+
+  <a
+    href="https://www.instagram.com/roaring_machines__?igsh=MTJhaGN3bGVqeWg1eQ=="
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-zinc-300 hover:text-yellow-500 transition"
+  >
+    <FaInstagram size={22} />
+  </a>
+
+  <a
+    href="https://wa.me/917317316464"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-zinc-300 hover:text-yellow-500 transition"
+  >
+    <FaWhatsapp size={22} />
+  </a>
+
+  <button
+    onClick={() => setOpen(!open)}
+    className="text-white"
+  >
+    {open ? <X size={28} /> : <Menu size={28} />}
+  </button>
+
+</div>
 
           </div>
 

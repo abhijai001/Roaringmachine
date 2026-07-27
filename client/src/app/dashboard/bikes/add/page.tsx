@@ -13,9 +13,9 @@ export default function AddBikePage() {
 
   const [loading, setLoading] = useState(false);
 
-  const [preview, setPreview] = useState("");
+ const [previews, setPreviews] = useState<string[]>([]);
 
-  const [image, setImage] = useState<File | null>(null);
+const [images, setImages] = useState<File[]>([]);
 
   const [form, setForm] = useState({
     title: "",
@@ -29,15 +29,15 @@ export default function AddBikePage() {
     isAvailable: "true",
   });
 
-  const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files?.length) return;
+const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
+  if (!e.target.files?.length) return;
 
-    const file = e.target.files[0];
+  const files = Array.from(e.target.files);
 
-    setImage(file);
+  setImages(files);
 
-    setPreview(URL.createObjectURL(file));
-  };
+  setPreviews(files.map((file) => URL.createObjectURL(file)));
+};
 
  const handleChange = (
   e: React.ChangeEvent<
@@ -55,17 +55,19 @@ export default function AddBikePage() {
   ) => {
     e.preventDefault();
 
-    if (!image) {
-      toast.error("Please select an image.");
-      return;
-    }
+    if (images.length === 0) {
+  toast.error("Please select at least one image.");
+  return;
+}
 
     try {
       setLoading(true);
 
       const data = new FormData();
 
-      data.append("image", image);
+      images.forEach((image) => {
+  data.append("image", image);
+});
 
       Object.entries(form).forEach(([key, value]) => {
         data.append(key, value);
@@ -128,24 +130,32 @@ export default function AddBikePage() {
             <label className="cursor-pointer">
 
               <input
-                type="file"
-                accept="image/*"
-                onChange={handleImage}
-                className="hidden"
-              />
+  type="file"
+  accept="image/*"
+  multiple
+  onChange={handleImage}
+  className="hidden"
+/>
 
               <div className="border-2 border-dashed border-yellow-500/30 rounded-2xl h-72 flex items-center justify-center overflow-hidden hover:border-yellow-500 transition">
 
-                {preview ? (
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={preview}
-                      alt="Preview"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ) : (
+                {previews.length > 0 ? (
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 p-3 w-full h-full overflow-y-auto">
+    {previews.map((preview, index) => (
+      <div
+        key={index}
+        className="relative h-32 rounded-xl overflow-hidden"
+      >
+        <Image
+          src={preview}
+          alt={`Preview ${index + 1}`}
+          fill
+          className="object-cover"
+        />
+      </div>
+    ))}
+  </div>
+) : (
                   <div className="text-center">
 
                     <Upload

@@ -43,9 +43,9 @@ export default function EditBikePage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
-  const [image, setImage] = useState<File | null>(null);
+const [images, setImages] = useState<File[]>([]);
 
-  const [preview, setPreview] = useState("");
+const [previews, setPreviews] = useState<string[]>([]);
 
   const [form, setForm] = useState({
     title: "",
@@ -79,7 +79,7 @@ export default function EditBikePage() {
         description: bike.description || "",
       });
 
-      setPreview(bike.images?.[0] || "");
+      setPreviews(bike.images || []);
     } catch (error: any) {
       toast.error(
         error?.response?.data?.message ||
@@ -90,17 +90,15 @@ export default function EditBikePage() {
     }
   };
 
-  const handleImage = (
-    e: ChangeEvent<HTMLInputElement>
-  ) => {
-    if (!e.target.files?.length) return;
+const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
+  if (!e.target.files?.length) return;
 
-    const file = e.target.files[0];
+  const files = Array.from(e.target.files);
 
-    setImage(file);
+  setImages(files);
 
-    setPreview(URL.createObjectURL(file));
-  };
+  setPreviews(files.map((file) => URL.createObjectURL(file)));
+};
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -125,9 +123,9 @@ export default function EditBikePage() {
         data.append(key, value);
       });
 
-      if (image) {
-        data.append("image", image);
-      }
+      images.forEach((image) => {
+  data.append("image", image);
+});
 
       await api.put(`/bikes/${id}`, data, {
         headers: {
@@ -193,24 +191,32 @@ export default function EditBikePage() {
             <label className="cursor-pointer">
 
               <input
-                type="file"
-                accept="image/*"
-                onChange={handleImage}
-                className="hidden"
-              />
+  type="file"
+  accept="image/*"
+  multiple
+  onChange={handleImage}
+  className="hidden"
+/>
 
               <div className="border-2 border-dashed border-yellow-500/30 rounded-2xl h-72 overflow-hidden flex items-center justify-center hover:border-yellow-500 transition">
 
-                {preview ? (
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={preview}
-                      alt="Bike Preview"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ) : (
+                {previews.length > 0 ? (
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 p-3 w-full h-full overflow-y-auto">
+    {previews.map((preview, index) => (
+      <div
+        key={index}
+        className="relative h-32 rounded-xl overflow-hidden"
+      >
+        <Image
+          src={preview}
+          alt={`Bike ${index + 1}`}
+          fill
+          className="object-cover"
+        />
+      </div>
+    ))}
+  </div>
+) : (
                   <div className="text-center">
 
                     <Upload
