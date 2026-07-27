@@ -183,11 +183,35 @@ if (pathname.startsWith("/dashboard")) {
             ))}
 
           </div>
+            <div className="mt-10 border-t border-zinc-800 pt-8">
+  <p className="text-zinc-400 text-sm mb-4 uppercase tracking-widest">
+    Follow Us
+  </p>
 
+  <div className="flex items-center gap-6">
+    <a
+      href="https://www.instagram.com/roaring_machines__?igsh=MTJhaGN3bGVqeWg1eQ=="
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-zinc-300 hover:text-yellow-500 transition"
+    >
+      <FaInstagram size={28} />
+    </a>
+
+    <a
+      href="https://wa.me/917317316464"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-zinc-300 hover:text-yellow-500 transition"
+    >
+      <FaWhatsapp size={28} />
+    </a>
+  </div>
+</div>
           <Link
             href="/sell"
             onClick={() => setOpen(false)}
-            className="mt-16 inline-flex bg-yellow-500 text-black px-7 py-4 rounded-full font-bold"
+            className="mt-10 inline-flex bg-yellow-500 text-black px-7 py-4 rounded-full font-bold"
           >
             Sell Your Bike
           </Link>
