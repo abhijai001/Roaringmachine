@@ -3,9 +3,11 @@ import SellRequest from '../models/SellRequest';
 import Bike from "../models/bike";
 export const createSellRequest = async (req: Request, res: Response) => {
   try {
-    const newRequest = new SellRequest({
+    const files = req.files as Express.Multer.File[];
+
+const newRequest = new SellRequest({
   ...req.body,
-  images: req.file ? [req.file.path] : [],
+  images: files ? files.map((file) => file.path) : [],
 });
     await newRequest.save();
     res.status(201).json(newRequest);

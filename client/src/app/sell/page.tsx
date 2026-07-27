@@ -25,7 +25,7 @@ export default function SellPage() {
   description: "",
 });
 
-  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imageFiles, setImageFiles] = useState<File[]>([]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -39,10 +39,10 @@ export default function SellPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!imageFile) {
-      toast.error("Please select an image.");
-      return;
-    }
+    if (imageFiles.length === 0) {
+  toast.error("Please select at least one image.");
+  return;
+}
 
     setSubmitting(true);
 
@@ -53,7 +53,9 @@ export default function SellPage() {
         data.append(key, value.toString());
       });
 
-      data.append("image", imageFile);
+      imageFiles.forEach((image) => {
+  data.append("image", image);
+});
 
       const response = await api.post("/sell-request", data, {
         headers: {
@@ -274,17 +276,19 @@ router.push("/");
           </label>
 
           <input
-            type="file"
-            accept="image/*"
-            required
-            onChange={(e) =>
-              setImageFile(e.target.files?.[0] ?? null)
-            }
-            className="w-full text-zinc-400 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-zinc-800 file:text-white hover:file:bg-zinc-700"
-          />
-        </div>
+  type="file"
+  accept="image/*"
+  multiple
+  required
+  onChange={(e) =>
+    setImageFiles(Array.from(e.target.files || []))
+  }
+  className="w-full text-zinc-400 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-zinc-800 file:text-white hover:file:bg-zinc-700"
+/>
 
-        <button
+</div>
+
+<button
           type="submit"
           disabled={submitting}
           className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded transition-colors disabled:opacity-50"
