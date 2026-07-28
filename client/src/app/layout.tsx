@@ -22,7 +22,9 @@ export default function RootLayout({
       <body className={`${inter.className} bg-zinc-950 text-zinc-100 min-h-screen`}>
         <Navbar />
         <Toaster position="bottom-right" />
-        <main>{children}</main>
+        <main className="pt-16 sm:pt-20">
+  {children}
+</main>
       </body>
     </html>
   );
