@@ -90,14 +90,15 @@ useEffect(() => {
         href={`/bikes/${bike._id}`}
         className="bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden shadow-lg hover:border-emerald-500 transition-colors block"
       >
-        <div className="relative h-48 w-full bg-zinc-800">
+        <div className="relative aspect-[4/3] w-full bg-zinc-800">
           {bike.images?.length > 0 ? (
             <Image
-              src={bike.images[0]}
-              alt={`${bike.brand} ${bike.model}`}
-              fill
-              className="object-cover"
-            />
+  src={bike.images[0]}
+  alt={`${bike.brand} ${bike.model}`}
+  fill
+  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+  className="object-cover object-center"
+ />
           ) : (
             <div className="flex items-center justify-center h-full text-zinc-500">
               No Image

@@ -95,16 +95,17 @@ export default function DashboardPage() {
               className="bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden shadow-lg flex flex-col justify-between"
             >
               <div>
-                <div className="relative h-52 w-full bg-zinc-800">
+                <div className="relative aspect-[4/3] w-full bg-zinc-800">
                   {bike.images &&
                   bike.images.length > 0 &&
                   bike.images[0] ? (
                     <Image
-                      src={bike.images[0]}
-                      alt={bike.title}
-                      fill
-                      className="object-cover"
-                    />
+  src={bike.images[0]}
+  alt={bike.title}
+  fill
+  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+  className="object-cover object-center"
+/>
                   ) : (
                     <div className="flex h-full items-center justify-center text-zinc-500">
                       No Image Available

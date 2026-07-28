@@ -97,15 +97,17 @@ export default function BikeDetailPage() {
 
           <div>
 
-            <div className="relative h-[520px] rounded-3xl overflow-hidden border border-yellow-500/20 bg-[#111]">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-yellow-500/20 bg-[#111]">
 
               {bike.images?.length ? (
                 <Image
-                  src={bike.images[selectedImage]}
-                  alt={bike.title}
-                  fill
-                  className="object-cover"
-                />
+  src={bike.images[selectedImage]}
+  alt={bike.title}
+  fill
+  priority
+  sizes="(max-width: 1024px) 100vw, 50vw"
+  className="object-cover object-center"
+/>
               ) : (
                 <div className="flex items-center justify-center h-full text-gray-500">
                   No Image Available

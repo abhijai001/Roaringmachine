@@ -246,15 +246,16 @@ const toggleFeatured = async (
 
               {/* Image */}
 
-              <div className="relative h-64 bg-zinc-900">
+              <div className="relative aspect-[4/3] bg-zinc-900">
 
                 {bike.images?.length > 0 ? (
                   <Image
-                    src={bike.images[0]}
-                    alt={bike.title}
-                    fill
-                    className="object-cover"
-                  />
+  src={bike.images[0]}
+  alt={bike.title}
+  fill
+  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+  className="object-cover object-center"
+/>
                 ) : (
                   <div className="h-full flex items-center justify-center text-gray-500">
                     No Image

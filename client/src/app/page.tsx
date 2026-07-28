@@ -239,14 +239,15 @@ setFeaturedBikes(
     key={bike._id}
     className="group overflow-hidden rounded-3xl border border-yellow-500/20 bg-zinc-900 hover:border-yellow-500 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(212,175,55,0.15)]"
   >
-          <div className="relative h-64 overflow-hidden">
+          <div className="relative aspect-[4/3] overflow-hidden">
 
             <Image
-              src={bike.images[0] || "/hero.png"}
-              alt={bike.title}
-              fill
-              className="object-cover group-hover:scale-110 transition duration-500"
-            />
+  src={bike.images[0] || "/hero.png"}
+  alt={bike.title}
+  fill
+  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+  className="object-cover object-center group-hover:scale-105 transition duration-500"
+/>
 
           </div>
 
