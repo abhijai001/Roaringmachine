@@ -9,7 +9,7 @@ import {
 
 const router = express.Router();
 
-router.post("/", upload.array("image", 10), createSellRequest);
+router.post("/", upload.array("image", 50), createSellRequest);
 
 router.get("/", getSellRequests);
 

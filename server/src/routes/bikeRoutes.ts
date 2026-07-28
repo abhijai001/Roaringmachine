@@ -104,7 +104,19 @@ router.get("/bikes/:id", async (req, res) => {
 //
 // ADD BIKE
 //
-router.post("/add-bike", upload.array("image",10), async (req, res) => {
+router.post("/add-bike", (req, res, next) => {
+  upload.array("image", 50)(req, res, (err: any) => {
+    if (err) {
+      console.error("UPLOAD ERROR:");
+      console.error(err);
+      return res.status(500).json({
+        message: err.message,
+      });
+    }
+
+    next();
+  });
+}, async (req, res) => {
   try {
     const {
   title,
@@ -147,20 +159,26 @@ if (!files || files.length === 0) {
       message: "Bike listed successfully",
       bike,
     });
-  } catch (error) {
-    console.error("Error saving bike:", error);
+  } catch (error: any) {
+  console.log("========== ADD BIKE ERROR ==========");
+  console.error(error);
+  console.log("Message:", error?.message);
+  console.log("Stack:", error?.stack);
+  console.log("Body:", req.body);
+  console.log("Files:", req.files);
+  console.log("====================================");
 
-    res.status(500).json({
-      message: "Server error while saving bike",
-    });
-  }
+  res.status(500).json({
+    message: error?.message || "Server error while saving bike",
+  });
+}
 });
 //
 // UPDATE BIKE
 //
 router.put(
   "/bikes/:id",
-  upload.array("image", 10),
+  upload.array("image", 50),
   async (req, res) => {
     try {
       const {
