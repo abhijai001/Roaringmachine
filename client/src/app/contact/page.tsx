@@ -1,3 +1,4 @@
+import { FaInstagram } from "react-icons/fa";
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-black text-white py-20 px-6">
@@ -138,13 +139,14 @@ export default function ContactPage() {
             </a>
 
             <a
-              href="https://www.facebook.com/hayabusaharleydavidson/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 text-center border border-yellow-500 text-yellow-500 py-3 rounded-full hover:bg-yellow-500 hover:text-black transition"
-            >
-              Visit Facebook
-            </a>
+  href="https://www.instagram.com/roaring_machines__?igsh=MTJhaGN3bGVqeWg1eQ=="
+  target="_blank"
+  rel="noopener noreferrer"
+  className="border border-yellow-500 text-yellow-500 py-4 rounded-full hover:bg-yellow-500 hover:text-black transition flex items-center justify-center gap-2"
+>
+  <FaInstagram size={18} />
+  <span>Visit Instagram</span>
+</a>
 
           </div>
 
